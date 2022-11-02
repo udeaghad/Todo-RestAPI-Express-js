@@ -48,8 +48,8 @@ const deleteTodoItem = async (req, res) => {
     const {id} = req.params
 
     await pool.query(deleteItem, [id])
-
-    res.status(200).json({message: "Item deleted successfully"})
+    
+    res.status(200).json({message: `Item deleted successfully`})
 
     
   } catch (error) {

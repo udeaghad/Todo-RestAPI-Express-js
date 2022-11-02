@@ -5,5 +5,6 @@ const getTodoItem = "SELECT * FROM todos WHERE id = $1"
 
 module.exports = { 
   addTodo,
-  getAllTodos
+  getAllTodos,
+  getTodoItem
 }

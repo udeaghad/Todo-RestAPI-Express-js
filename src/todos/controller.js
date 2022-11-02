@@ -1,5 +1,5 @@
 const pool = require('../db/db')
-const { addTodo, getAllTodos } = require('../db/queries')
+const { addTodo, getAllTodos, getTodoItem } = require('../db/queries')
 
 const addTodoItem = async (req, res) => {
    try {
@@ -20,7 +20,19 @@ const getAllTodosItems = async (req, res)  => {
   }
 }
 
+const getTodoItemDetails = async (req, res) => {
+  try {
+    const id = parseInt(req.params.id)
+    const item = await pool.query(getTodoItem, [id])
+    res.status(200).json(item.rows[0])
+
+  } catch (err){
+    console.error(err.message)
+  }
+}
+
 module.exports = {
   addTodoItem,
-  getAllTodosItems
+  getAllTodosItems,
+  getTodoItemDetails
 }

@@ -1,11 +1,11 @@
 const pool = require('../db/db')
-const { addTodo, getAllTodos, getTodoItem } = require('../db/queries')
+const { addTodo, getAllTodos, getTodoItem, updateItem } = require('../db/queries')
 
 const addTodoItem = async (req, res) => {
    try {
     const {description } = req.body
     const newTodo = await pool.query(addTodo, [description])
-    res.status(200).json(newTodo.rows[0])
+    res.status(201).json({data:newTodo.rows[0], message:"Item created successfully"})
    } catch (err) {
     console.error(err.message)
    }
@@ -31,8 +31,21 @@ const getTodoItemDetails = async (req, res) => {
   }
 }
 
+const updatedCompletedItem = async (req, res) => {
+  try {
+    const {id} = req.params;
+    const {completed} = req.body;
+    const updatedItem = await pool.query(updateItem, [completed, id])
+    res.status(200).json({ data:updatedItem.rows[0], message:"Item updated successfully"})
+    
+  } catch (error) {
+    console.error(error.message)
+  }
+}
+
 module.exports = {
   addTodoItem,
   getAllTodosItems,
-  getTodoItemDetails
+  getTodoItemDetails,
+  updatedCompletedItem
 }

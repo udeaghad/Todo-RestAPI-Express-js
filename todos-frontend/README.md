@@ -49,7 +49,6 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- The colors, typography and the layout of this app was done according to the design guidelines of Gregoire Vella on Behance
 - 
 - etc
 

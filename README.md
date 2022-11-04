@@ -21,6 +21,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Usage and Installation
 - Navigate to the directory `cd Todo-RestAPI-Express-js` (case sensitive, make sure you type the correct path)
+- Set up your postgres database
 - Run `npm install` in your terminal
 - To setup the backend run the following commands:
   - `npm start`
